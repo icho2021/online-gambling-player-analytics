@@ -1,0 +1,14 @@
+# Environments
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+.vscode/
+
+# Generated: `python -m src.make_sample_data` rebuilds these
+data/
+
+# Generated outputs. The small ones are committed as samples; these are not.
+output/player_day.csv
+output/player_day.xlsx
+output/*.duckdb
