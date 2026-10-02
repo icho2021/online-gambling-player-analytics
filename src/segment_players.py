@@ -712,6 +712,25 @@ def build_kmeans_diagnostics(player_df: pd.DataFrame) -> pd.DataFrame:
             }
         )
 
+    # The commentary is derived from the table above rather than hardcoded, so it
+    # stays true whichever dataset this is run against.
+    scored = [r for r in rows if r["K"] is not None]
+    best = max(scored, key=lambda r: r["MeanSilhouette"])
+    spread = max(r["MeanSilhouette"] for r in scored) - min(
+        r["MeanSilhouette"] for r in scored
+    )
+    if best["K"] == KMEANS_K:
+        separation = (
+            f"K={KMEANS_K} also has the highest mean silhouette here "
+            f"({best['MeanSilhouette']})"
+        )
+    else:
+        separation = (
+            f"K={best['K']} has the highest mean silhouette here "
+            f"({best['MeanSilhouette']}), so K={KMEANS_K} is a granularity-versus-"
+            "separation trade-off rather than the statistical optimum"
+        )
+
     rows.append({
         "K": None,
         "Inertia": None,
@@ -719,9 +738,10 @@ def build_kmeans_diagnostics(player_df: pd.DataFrame) -> pd.DataFrame:
         "SilhouetteSampleSize": None,
         "Selected": (
             f"K={KMEANS_K} is a business interpretability choice: four tiers map to "
-            "four distinct CRM treatments. K=2 has the strongest silhouette in this "
-            "dataset, so K=4 is disclosed as a granularity-versus-separation trade-off, "
-            f"not the statistical optimum. Each K uses {KMEANS_N_INIT} initialisations."
+            f"four distinct CRM treatments. {separation}. Every value sits within "
+            f"{spread:.3f} of every other, so no K separates these players cleanly and "
+            "the silhouette is not what decides this. Each K uses "
+            f"{KMEANS_N_INIT} initialisations."
         ),
     })
     return pd.DataFrame(rows)
@@ -1108,9 +1128,11 @@ def build_method_summary(detailed: pd.DataFrame) -> pd.DataFrame:
             {
                 "Metric": "Why four value tiers",
                 "Value": (
-                    "k=2 has the strongest silhouette but is too coarse for CRM action. k=4 is "
-                    "a deliberate trade-off between statistical separation and the requested "
-                    "Premium / High / Medium / Low business tiers."
+                    "No K separates these players cleanly: the mean silhouette stays near 0.2 "
+                    "across the whole range, so the diagnostic cannot decide this. k=2 would "
+                    "be too coarse for CRM action, so k=4 is chosen for the Premium / High / "
+                    "Medium / Low tiers the business can actually treat differently. See the "
+                    "KMeans_Diagnostics sheet for the per-K figures."
                 ),
             },
             {

@@ -5,9 +5,13 @@ to 2021. Model them into one table, aggregate, segment the players by value and
 by risk, build a review workflow for the ones that need a human, and put a
 dashboard on top.
 
-The source data is not redistributed. `src/make_sample_data.py` generates
-synthetic workbooks with the same sheet names, columns and types, so every
-script below runs end to end on a clean clone.
+The activity behind this is real operator data from the online gambling sector,
+published in the public domain, not generated for a tutorial. The operator is
+not identified here, identifying fields were removed before any of this was
+written, and the source workbooks are not redistributed.
+`src/make_sample_data.py` generates synthetic workbooks with the same sheet
+names, columns and types, so every script below runs end to end on a clean
+clone.
 
 ## The data
 
@@ -25,6 +29,11 @@ Six workbooks, one row per event:
 Deposits and withdrawals arrive split across separate successful and failed
 sheets, so failed attempts have to be carried through rather than dropped: a
 high failure rate is itself a signal.
+
+The origin is real, but the file is not a raw extract. The age distribution does
+not look like a real market of this size, so the data has likely been resampled
+or otherwise processed before publication. Nothing below depends on the age mix
+being representative, but reading this as a market snapshot would be a mistake.
 
 Data model: [`docs/er_diagram.md`](docs/er_diagram.md).
 Findings from the original data: **[`docs/findings.md`](docs/findings.md)**.
@@ -48,16 +57,71 @@ what the reviewer entered against the allowed values, and exports a CSV replica.
 The point is that the reviewer's decision is captured in a structured,
 checkable form rather than in an email.
 
-**4. Segment the players.** Two approaches kept side by side: KMeans on
-standardised behavioural features, and an RFM score. Value segments are Low,
-Medium, High and Premium; risk segments are Low, Medium and High, rule-based on
-behavioural indicators.
+**4a. Segment the players by value.** Two approaches kept side by side: KMeans
+on five standardised features (Recency, Frequency, Monetary, Deposit, Tenure),
+and a classic RFM score. Segments are Low, Medium, High and Premium.
 
-KMeans is implemented directly in numpy, including k-means++ initialisation,
-rather than called from a library. K is set to four because four tiers are
-actionable, not because a silhouette score picked it. Keeping the RFM result
-beside it matters: the two methods disagree on some players, and the
-disagreement is information about where the boundary is soft.
+The features are log-transformed first, because deposit and wager amounts span
+several orders of magnitude and KMeans minimises squared distance. Monetary uses
+`signed_log1p`, because net gaming can be negative: a plain `log1p` is undefined
+for a player who won more than they staked, and those are exactly the players
+that turn out to matter.
+
+KMeans is written out in numpy, k-means++ initialisation included, rather than
+called from a library. **K=4 is a business choice and the diagnostics say so.**
+The mean silhouette stays near 0.2 across K=2 to K=8, a range of about 0.04, so
+no K separates these players cleanly and the metric cannot decide this. K=2
+would be too coarse to act on, so four tiers are chosen because four tiers map
+to four different treatments. Per-K figures are in the `KMeans_Diagnostics`
+sheet of `output/player_segments.xlsx`.
+
+Keeping the RFM result beside KMeans matters: the two methods disagree on some
+players, and the disagreement marks where the boundary is soft.
+
+**4b. Score the players for risk.** Two independent scores, not one combined
+flag, because they call for different responses: anti-money-laundering is an
+investigation, responsible gambling is an intervention. Collapsing them into a
+single number would make a payments pattern and a harm marker cancel out or
+reinforce each other, and neither is meaningful.
+
+AML triggers, financial-crime typologies:
+
+| Trigger | Condition | Points |
+| --- | --- | ---: |
+| Pass-through | deposit ≥ 5,000, playthrough < 10%, withdrawal/deposit ≥ 80% | 3 |
+| Withdrawal with no deposit | deposit = 0 and withdrawal > 0 | 3 |
+| Withdrawal exceeds deposit | deposit ≥ 2,000 and withdrawal/deposit ≥ 1.50 | 2 |
+| Card testing | ≥ 10 failed deposits and ≥ 50% failure rate | 2 |
+| Large withdrawal volume | withdrawal in the top 1% | +1, **only on top of another trigger** |
+
+Responsible-gambling triggers, markers of harm:
+
+| Trigger | Condition | Points |
+| --- | --- | ---: |
+| Loss chasing | ≥ 10 days depositing again after a losing session | 2 |
+| Deposit escalation | deposits ≥ 2× the earlier baseline, tenure ≥ 180 days | 2 |
+| High loss velocity | net loss per active day in the top 5% | 2 |
+| Sustained intensity | ≥ 30 consecutive active days | 1 |
+| High absolute loss | net gaming loss in the top 5% | 1 |
+
+Tiering is an OR across the two scores, never a sum: **High Risk at AML ≥ 3 or
+RG ≥ 4, Medium at AML ≥ 1 or RG ≥ 2.** Three AML points and four RG points mean
+different things and must not trade against each other.
+
+Three design decisions worth naming:
+
+- **Volume alone never creates risk.** The large-withdrawal point is a severity
+  multiplier that only applies when a pattern already fired. Without that guard
+  the rule would flag the biggest customers for being big, which is the most
+  common way a risk model becomes unusable in practice.
+- **Absolute thresholds for typologies, percentiles for intensity.** Pass-through
+  and card testing describe a specific behaviour, so they use fixed numbers that
+  mean the same thing on any dataset. Loss velocity and absolute loss ask
+  "unusual compared with these players", so they use percentiles of this
+  population. Using one kind of threshold for both would get one of them wrong.
+- **Escalation requires 180 days of tenure.** A new player has no baseline to
+  escalate from, so without the gate every new depositor would look like a
+  worsening one.
 
 **5. Build the dashboard.** Five pages, from an executive overview to value and
 risk segmentation. Design rationale in
