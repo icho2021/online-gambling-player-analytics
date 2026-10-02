@@ -123,10 +123,15 @@ Three design decisions worth naming:
   escalate from, so without the gate every new depositor would look like a
   worsening one.
 
-**5. Build the dashboard.** Five pages, from an executive overview to value and
-risk segmentation. Design rationale in
-[`docs/dashboard_design.md`](docs/dashboard_design.md), screenshots in
+**5. Build the dashboard.** Three pages: business performance, player value and
+behaviour, and payments and review indicators. The five-page structure in
+[`docs/dashboard_design.md`](docs/dashboard_design.md) is the design; what is
+built is a condensed version of it. Screenshots in
 [`docs/dashboard/`](docs/dashboard).
+
+The review queue on page 3 is the one worth opening. It carries a Risk Driver
+column separating AML from Responsible Gambling, so two players at the same risk
+tier are visibly there for different reasons and route to different responses.
 
 ![Player value and behaviour](docs/dashboard/page2_player_value_and_behaviour.png)
 
@@ -202,9 +207,12 @@ risk segment means a person should look, not that misconduct occurred. The AML
 workbook is built the same way: it routes a case to a reviewer and records the
 reviewer's decision.
 
-**Net Gaming is not labelled Gross Gaming Revenue.** Wagers minus winnings is
-defensible as a number, but the business term carries a specific regulatory
-definition and is not used here without confirmation.
+**GGR is a regulated term, so the number is reported as an estimate.** Wagers
+minus winnings is a defensible calculation, but Gross Gaming Revenue has a
+specific definition in each jurisdiction and is not claimed here. Page 1 of the
+dashboard labels it Estimated GGR throughout. Page 2 shortens that to GGR in the
+two places where a KPI card cannot hold the longer label; the measure behind
+both is the same.
 
 **Failed transactions are kept.** They are loaded from their own sheets and
 carried into the player-day table, because failure rate feeds the risk
