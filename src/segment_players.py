@@ -48,7 +48,7 @@ OUTPUT_XLSX = PROJECT_ROOT / "output" / "player_segments.xlsx"
 
 VALUE_LABELS = ["Low Value", "Medium Value", "High Value", "Premium"]
 RISK_LABELS = ["Low Risk", "Medium Risk", "High Risk"]
-IGAMING_MIN_AGE = 19
+MIN_LEGAL_AGE = 19
 
 # KMeans configuration. K is a business choice (four tiers are actionable for
 # CRM); 4.9 reports the statistical diagnostics behind that choice.
@@ -339,7 +339,7 @@ def build_player_features(q1_df: pd.DataFrame) -> pd.DataFrame:
     # but are not removed and are not used by either model.
     player_df["AgeBand"] = assign_age_band(player_df["Age"])
     player_df["AgeEligibilityFlag"] = (
-        player_df["Age"] < IGAMING_MIN_AGE
+        player_df["Age"] < MIN_LEGAL_AGE
     ).astype(int)
 
     # --- Money flow ----------------------------------------------------------
@@ -904,7 +904,7 @@ def age_band_mix(series: pd.Series) -> str:
 
 
 def median_age_19_plus(series: pd.Series) -> float:
-    eligible_ages = series[series >= IGAMING_MIN_AGE]
+    eligible_ages = series[series >= MIN_LEGAL_AGE]
     return float(eligible_ages.median()) if not eligible_ages.empty else np.nan
 
 
@@ -1246,9 +1246,9 @@ def build_data_quality_notes(q1_df: pd.DataFrame, player_df: pd.DataFrame) -> pd
                 "Topic": "Age distribution",
                 "Observation": (
                     f"Age ranges from {ages.min()} to {ages.max()} with a median of "
-                    f"{ages.median():.0f}; {(ages < IGAMING_MIN_AGE).sum()} of {len(ages)} "
+                    f"{ages.median():.0f}; {(ages < MIN_LEGAL_AGE).sum()} of {len(ages)} "
                     f"players are recorded below the minimum legal age threshold of "
-                    f"{IGAMING_MIN_AGE}."
+                    f"{MIN_LEGAL_AGE}."
                 ),
                 "Treatment": (
                     "All records are retained. Age bands and the under-19 share are reported as "

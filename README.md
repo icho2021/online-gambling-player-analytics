@@ -27,6 +27,7 @@ sheets, so failed attempts have to be carried through rather than dropped: a
 high failure rate is itself a signal.
 
 Data model: [`docs/er_diagram.md`](docs/er_diagram.md).
+Findings from the original data: **[`docs/findings.md`](docs/findings.md)**.
 
 ## What it does
 
@@ -58,9 +59,38 @@ actionable, not because a silhouette score picked it. Keeping the RFM result
 beside it matters: the two methods disagree on some players, and the
 disagreement is information about where the boundary is soft.
 
-**5. Design the dashboard.** Five pages, from an executive overview to value and
-risk segmentation to an explicit insights page.
-See [`docs/dashboard_design.md`](docs/dashboard_design.md).
+**5. Build the dashboard.** Five pages, from an executive overview to value and
+risk segmentation. Design rationale in
+[`docs/dashboard_design.md`](docs/dashboard_design.md), screenshots in
+[`docs/dashboard/`](docs/dashboard).
+
+![Player value and behaviour](docs/dashboard/page2_player_value_and_behaviour.png)
+
+## Four findings
+
+Full write-up with the charts: [`docs/findings.md`](docs/findings.md).
+
+**The declining trend is attrition, not demand.** Wagers fall from 17.5M in 2015
+to almost nothing by 2021, but this is a fixed cohort followed forward. Nobody
+joins after the start, so every later year holds only the players who had not
+stopped yet. A falling line here measures churn, and reading it as a shrinking
+market would point at the wrong problem.
+
+**High volume is not high value.** Low Value players have the highest average
+wager of any segment, 16,519 against Premium's 10,158. They are low value
+because they win: their contribution to revenue is negative. Ranking players by
+volume would rank this group first, which is exactly backwards.
+
+**Risk sits inside the revenue.** 129 players are flagged High Risk, and 121 of
+them are Premium or High Value. An automatic restriction would land almost
+entirely on the most valuable players, which is why review is a workflow with a
+human decision rather than a filter.
+
+**Deposits and withdrawals pull apart.** Both start near 72% success in 2015. By
+2020 deposits reach 81% while withdrawals fall to 38%. One line rising while the
+other falls is not general payment health, it points at the withdrawal path
+specifically. And since failed transaction rate feeds the risk score, a
+processing problem can surface as a behavioural signal.
 
 ## Run it
 

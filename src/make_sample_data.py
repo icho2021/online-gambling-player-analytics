@@ -22,7 +22,7 @@ RNG = np.random.default_rng(20260929)
 START = date(2015, 2, 1)
 DAYS = 365
 
-COUNTRIES = [(1, "Canada"), (2, "Germany"), (3, "United Kingdom")]
+COUNTRIES = [(1, "Canada"), (2, "US"), (3, "Europe")]
 PAY_METHODS = [
     ("VISA", "EEA debit/credit card"),
     ("MASTERCARD", "EEA debit/credit card"),
