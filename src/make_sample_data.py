@@ -61,7 +61,7 @@ def _activity(n_players: int, rows: int, count_col: str) -> pd.DataFrame:
     })
 
 
-def _money(n_players: int, rows: int, id_col: str, mean_log: float) -> pd.DataFrame:
+def _money(n_players: int, rows: int, id_col: str, mean_log: float, success_rate: float) -> pd.DataFrame:
     users = RNG.integers(1, n_players + 1, rows)
     offsets = RNG.integers(0, DAYS, rows)
     methods = RNG.integers(0, len(PAY_METHODS), rows)
@@ -74,7 +74,7 @@ def _money(n_players: int, rows: int, id_col: str, mean_log: float) -> pd.DataFr
         "PayMeth": [PAY_METHODS[i][0] for i in methods],
         "PayMethCat": [PAY_METHODS[i][1] for i in methods],
         "Amount": np.round(RNG.lognormal(mean_log, 1.1, rows), 5),
-        "Status": RNG.choice(["S", "F"], rows, p=[0.86, 0.14]),
+        "Status": RNG.choice(["S", "F"], rows, p=[success_rate, 1 - success_rate]),
     })
 
 
@@ -89,20 +89,21 @@ def main() -> int:
     pd.DataFrame(COUNTRIES, columns=["CountryCode", "Country"]).to_excel(
         args.out / "Country Reference Table.xlsx", sheet_name="Sheet1", index=False)
     demographics(n).to_excel(args.out / "Demographics.xlsx", sheet_name="Demographics", index=False)
-    _activity(n, 50_000, "CashGames").to_excel(args.out / "Games.xlsx", sheet_name="Games", index=False)
-    _activity(n, 80_000, "Tournaments").to_excel(args.out / "Tournaments.xlsx", sheet_name="Tournaments", index=False)
+    _activity(n, 51_763, "CashGames").to_excel(args.out / "Games.xlsx", sheet_name="Games", index=False)
+    _activity(n, 82_831, "Tournaments").to_excel(args.out / "Tournaments.xlsx", sheet_name="Tournaments", index=False)
 
-    dep = _money(n, 70_000, "DepositID", 4.0)
+    dep = _money(n, 295_088, "DepositID", 4.0, 0.758)
     with pd.ExcelWriter(args.out / "Deposits.xlsx") as w:
         dep[dep.Status == "F"].to_excel(w, sheet_name="FailedDeposits", index=False)
         dep[dep.Status == "S"].to_excel(w, sheet_name="SuccessfulDeposits", index=False)
 
-    wdr = _money(n, 15_000, "WithdrawalID", 4.4)
+    wdr = _money(n, 32_307, "WithdrawalID", 4.4, 0.532)
     with pd.ExcelWriter(args.out / "Withdrawals.xlsx") as w:
         wdr[wdr.Status == "F"].to_excel(w, sheet_name="FailedWithdrawals", index=False)
         wdr[wdr.Status == "S"].to_excel(w, sheet_name="SuccessfulWithdrawals", index=False)
 
-    print(f"Wrote six workbooks to {args.out}/ for {n:,} synthetic players.")
+    total = 51_763 + 82_831 + 295_088 + 32_307 + n + len(COUNTRIES)
+    print(f"Wrote six workbooks to {args.out}/: {n:,} synthetic players, {total:,} rows.")
     print("Numbers are random. Only the structure matches the original source.")
     return 0
 

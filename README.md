@@ -5,13 +5,17 @@ to 2021. Model them into one table, aggregate, segment the players by value and
 by risk, build a review workflow for the ones that need a human, and put a
 dashboard on top.
 
+**467,020 rows** across the six workbooks: 5,028 players, 327,395 payment
+attempts, 134,594 player-days of play, 2015 to 2021.
+
 The activity behind this is real operator data from the online gambling sector,
-published in the public domain, not generated for a tutorial. The operator is
-not identified here, identifying fields were removed before any of this was
-written, and the source workbooks are not redistributed.
-`src/make_sample_data.py` generates synthetic workbooks with the same sheet
-names, columns and types, so every script below runs end to end on a clean
-clone.
+not generated for a tutorial. The operator is not identified here, the source
+workbooks are not redistributed, and the data carries no names, emails,
+addresses or account numbers: players appear only as surrogate ids.
+
+`src/make_sample_data.py` generates synthetic workbooks at the same scale, with
+the same sheet names, columns and types, so every script below runs end to end
+on a clean clone.
 
 ## The data
 

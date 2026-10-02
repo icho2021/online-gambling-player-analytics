@@ -1,51 +1,51 @@
 Activity Date,Player ID,Gender,Age,Country,Wager Amount,Winning Amount,Deposit Amount,Withdrawal Amount,Review Status,Decision,Comment
-2015-05-24,342,M,30,Canada,36.62215,9.38439,1249.00868,5400.19073,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
-2015-08-12,1913,M,46,Canada,58.50833,96.84210999999999,740.27904,5328.00873,Review Completed,No Action required,Synthetic input for workflow demonstration only.
-2015-11-08,450,M,28,United Kingdom,110.64517,30.67037,796.85014,4918.48782,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
-2015-09-14,4476,M,25,Canada,446.88984,139.43225,1206.10648,4105.487599999999,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
-2015-12-26,1301,M,64,Germany,47.48054,27.33353,2504.79526,3608.47721,Review Completed,No Action required,Synthetic input for workflow demonstration only.
-2016-01-01,3451,M,54,Canada,1730.98576,653.61945,1405.4343,3340.1591,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
-2015-09-09,184,F,53,Canada,649.5544199999999,415.71105,686.76897,3306.86731,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
-2015-10-27,1808,M,38,United Kingdom,369.36486,262.5564,1193.10492,3203.96746,Review Completed,No Action required,Synthetic input for workflow demonstration only.
-2015-10-26,924,M,55,Germany,160.2464,92.59971,449.56245,3186.34265,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
-2015-09-23,2258,F,21,Germany,22.58608,34.16639,1545.64759,3105.78578,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
-2015-06-21,1170,M,16,Germany,74.6793,54.67464,2184.32682,2995.91022,Review Completed,No Action required,Synthetic input for workflow demonstration only.
-2015-08-29,775,M,63,United Kingdom,350.33935,190.69961,740.0424,2962.07109,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
-2016-01-29,4528,M,58,Canada,63.51077,35.56511,372.42604,2823.39153,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
-2015-07-08,2804,M,21,Canada,60.84183,27.9039,1768.54514,2792.77053,Review Completed,No Action required,Synthetic input for workflow demonstration only.
-2015-07-05,2627,F,25,Canada,117.25751,50.42866,335.88596,2752.72409,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
-2015-11-22,4989,M,43,Germany,344.72104,304.98419,1490.53479,2679.85199,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
-2016-01-16,4760,M,22,Canada,46.786,43.64717,1560.6061,2576.60327,Review Completed,No Action required,Synthetic input for workflow demonstration only.
-2015-05-09,4497,M,57,United Kingdom,82.17206999999999,55.50077,1359.19567,2531.23137,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
-2015-12-25,3386,M,27,Canada,29.23222,22.0991,897.8356,2461.53465,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
-2015-12-28,4875,M,14,Germany,95.17532,24.92573,807.98718,2432.191,Review Completed,No Action required,Synthetic input for workflow demonstration only.
-2016-01-01,3268,M,36,Canada,334.04312,452.61799,1258.5449,2426.19484,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
-2015-11-10,181,M,51,Canada,141.49272,77.65336,348.98315,2368.30741,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
-2016-01-29,1188,M,45,Canada,109.53858,85.60306,389.19235,2340.73975,Review Completed,No Action required,Synthetic input for workflow demonstration only.
-2015-11-29,2581,M,53,Canada,199.17496,47.31966,963.7255,2331.70998,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
-2016-01-06,219,F,55,Germany,194.88785,104.49483,382.43669,2326.05896,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
-2016-01-14,4654,M,43,Germany,263.8154,102.83493,3032.05206,2288.30098,Review Completed,No Action required,Synthetic input for workflow demonstration only.
-2016-01-25,2316,F,43,Germany,673.21853,331.16113,430.79324,2270.67178,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
-2015-11-19,3168,F,62,Canada,40.82207,22.23451,1069.7114,2247.74435,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
-2015-11-17,4409,M,57,Canada,57.89094,39.8097,541.45417,2218.3515,Review Completed,No Action required,Synthetic input for workflow demonstration only.
-2016-01-02,3292,M,14,United Kingdom,21.87112,6.90224,794.0243800000001,2217.88542,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
-2015-12-21,4343,M,50,Canada,84.07017,11.22564,381.8945,2213.41181,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
-2015-08-19,2505,M,55,Germany,122.39328,36.59639,2140.67313,2193.7325,Review Completed,No Action required,Synthetic input for workflow demonstration only.
-2015-12-30,2511,M,17,Germany,235.26195,121.29248,997.1158700000001,2163.21653,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
-2015-12-25,175,M,43,Canada,169.05965,63.66012,389.13167,2158.96756,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
-2015-12-24,3265,M,40,Canada,25.23978,15.43086,1753.06299,2139.91144,Review Completed,No Action required,Synthetic input for workflow demonstration only.
-2015-09-10,1591,M,13,United Kingdom,43.0987,23.56483,1047.44,2134.22865,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
-2015-07-18,2423,M,59,Canada,31.25111,13.46421,3317.39396,2045.91116,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
-2015-09-30,4742,M,38,Canada,94.61939,60.20911,358.3764,2043.66359,Review Completed,No Action required,Synthetic input for workflow demonstration only.
-2016-01-01,4870,F,21,Canada,63.44162,32.53338,1543.7435,1999.22382,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
-2015-12-25,1564,M,23,Canada,307.91604,102.12622,704.21176,1980.62854,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
-2015-12-28,2497,M,55,Germany,10.7996,15.74924,1325.91854,1976.9652,Review Completed,No Action required,Synthetic input for workflow demonstration only.
-2015-10-13,4226,M,33,United Kingdom,69.59333,48.06736,1924.51113,1968.63764,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
-2015-11-06,2063,F,19,Canada,189.05656,211.07291,1345.25517,1960.74974,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
-2015-12-23,389,M,48,Canada,131.17258,18.75283,1484.68443,1958.1671,Review Completed,No Action required,Synthetic input for workflow demonstration only.
-2015-07-31,196,F,40,Canada,302.16611,191.29546,727.78399,1946.98009,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
-2015-11-13,4550,M,28,Canada,132.05004,89.53892,1711.30596,1946.33914,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
-2015-12-20,606,M,44,United Kingdom,27.54457,15.64053,756.27717,1903.74385,Review Completed,No Action required,Synthetic input for workflow demonstration only.
-2015-11-16,2723,M,15,Canada,160.80253,38.28051000000001,1280.9187,1901.04948,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
-2015-10-17,4186,M,36,United Kingdom,79.56811,22.46588,1162.03,1891.76429,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
-2015-11-15,686,M,20,Germany,138.726,25.07869,754.71404,1889.19805,Review Completed,No Action required,Synthetic input for workflow demonstration only.
+2015-10-16,1156,F,18,Canada,235.56966,146.52091,4513.73529,5139.38026,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
+2015-12-28,450,M,28,Europe,112.07576,37.73236,4608.7175,4886.8936,Review Completed,No Action required,Synthetic input for workflow demonstration only.
+2015-09-11,562,F,38,US,128.02027,76.32212,5515.20281,4793.62492,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
+2016-01-31,4549,M,59,US,55.35392,15.476,3440.99558,4546.51926,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
+2015-12-29,4833,M,28,US,39.31310999999999,9.51304,3528.18422,3825.29936,Review Completed,No Action required,Synthetic input for workflow demonstration only.
+2015-08-18,4129,F,26,Canada,30.38638,5.14319,4828.32479,3736.486080000001,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
+2015-12-21,3250,F,13,Canada,515.28036,259.04691,5603.34187,3626.69072,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
+2015-11-02,1266,M,35,Canada,146.81789,90.9894,3681.20089,3369.91703,Review Completed,No Action required,Synthetic input for workflow demonstration only.
+2015-11-22,2408,M,34,Europe,92.92929,72.34633,3669.02168,3274.6951,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
+2015-12-24,2552,F,15,Canada,242.20263,119.80445,4253.99569,3239.4909,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
+2015-07-25,63,M,12,Canada,187.14145,120.6404,4698.80193,3120.9876,Review Completed,No Action required,Synthetic input for workflow demonstration only.
+2015-11-16,2470,F,39,Canada,243.37153,143.8914,3186.82539,3114.17668,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
+2016-01-05,2874,M,62,US,80.69565,72.08115000000001,2686.43563,3075.05931,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
+2015-11-22,4958,M,24,Canada,86.84300999999999,33.51177,2881.34582,2958.94463,Review Completed,No Action required,Synthetic input for workflow demonstration only.
+2015-12-23,2838,M,29,Canada,62.39778,36.51515,4842.39022,2946.49304,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
+2015-10-17,300,M,25,Canada,60.36461,50.44979000000001,4098.75409,2929.25471,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
+2015-07-23,761,F,59,Canada,114.57634,10.82696,3606.15536,2855.89044,Review Completed,No Action required,Synthetic input for workflow demonstration only.
+2015-11-27,1798,F,60,US,99.433,65.93303,5843.96848,2825.32008,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
+2015-12-06,3304,M,40,US,361.15738,90.4031,3548.48073,2822.95473,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
+2015-11-05,3271,F,65,US,228.92894,81.56479,4860.65853,2809.95718,Review Completed,No Action required,Synthetic input for workflow demonstration only.
+2016-01-02,4312,M,64,Canada,238.22986,134.29021,4398.95046,2795.04908,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
+2015-11-12,611,M,42,Europe,34.02644,21.52549,2322.60105,2776.78619,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
+2015-11-13,4662,M,52,Europe,66.16574,12.504,4970.06279,2768.64152,Review Completed,No Action required,Synthetic input for workflow demonstration only.
+2015-12-15,4959,F,39,Canada,134.56864,124.81404,4324.65213,2757.45826,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
+2015-12-27,800,F,26,Europe,53.38166,16.05134,5082.33641,2733.00263,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
+2015-09-14,4217,M,40,US,94.68821,11.72282,5610.27051,2646.88218,Review Completed,No Action required,Synthetic input for workflow demonstration only.
+2015-11-23,2186,M,33,Europe,55.32303,37.07954,4004.43989,2599.53423,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
+2015-10-17,1562,M,61,Europe,14.23394,13.4284,3039.32315,2578.85321,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
+2016-01-20,2766,M,12,Canada,92.40844,72.58085,5092.36524,2555.66822,Review Completed,No Action required,Synthetic input for workflow demonstration only.
+2015-09-19,3333,M,64,Canada,118.06604,55.83185,5015.40469,2538.64343,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
+2015-11-18,2873,M,34,Canada,178.3171,63.66970999999999,5208.76301,2497.37892,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
+2015-12-10,3395,M,50,Canada,195.29497,93.82115999999999,6096.829909999999,2497.3661,Review Completed,No Action required,Synthetic input for workflow demonstration only.
+2015-12-04,834,M,61,Canada,89.30324,37.05646,5366.2129,2474.2664,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
+2015-12-07,2733,M,18,Europe,1160.94278,561.18454,4547.79435,2434.38072,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
+2016-01-11,1794,M,41,Europe,334.68348,299.67501,3022.79863,2381.59189,Review Completed,No Action required,Synthetic input for workflow demonstration only.
+2015-12-21,2420,M,22,Europe,66.6628,26.32199,5388.20179,2379.25942,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
+2016-01-17,667,M,23,Canada,63.92849,3.61965,3258.34219,2379.21665,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
+2016-01-28,998,F,58,Canada,59.96182,54.64128,2779.59092,2368.44305,Review Completed,No Action required,Synthetic input for workflow demonstration only.
+2016-01-11,3536,M,50,Europe,62.83211,30.96283,3278.45715,2354.29118,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
+2015-09-05,325,M,37,Canada,114.54924,52.72217,3143.30283,2342.52261,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
+2015-12-16,2957,M,33,Europe,132.4463,44.11765,2549.09442,2330.43922,Review Completed,No Action required,Synthetic input for workflow demonstration only.
+2016-01-21,4759,M,27,Europe,653.9299,323.43746,3168.71491,2317.40326,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
+2015-06-30,646,M,37,Canada,64.09745,21.35379,3469.58263,2315.92831,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
+2015-11-21,200,M,57,Europe,192.8394,100.63321,5044.860619999999,2312.47903,Review Completed,No Action required,Synthetic input for workflow demonstration only.
+2016-01-10,3065,M,37,Canada,77.95584,85.54661999999999,3482.42341,2302.2177,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
+2015-09-17,890,M,53,US,74.06049,59.49952,4295.97131,2297.3987,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
+2015-12-21,4380,M,28,US,33.14818,35.37602,2666.03828,2282.59467,Review Completed,No Action required,Synthetic input for workflow demonstration only.
+2016-01-11,1861,M,54,Canada,48.65715,14.19634,6971.71959,2269.69323,To be reviewed,Account Freeze requested,Synthetic input for workflow demonstration only.
+2015-12-03,5000,M,30,Canada,33.87371,29.83038,2805.70016,2267.52493,Review in Progress,Operator Review needed,Synthetic input for workflow demonstration only.
+2015-09-23,2342,M,54,Canada,184.86161,52.93841,4073.04958,2266.89931,Review Completed,No Action required,Synthetic input for workflow demonstration only.

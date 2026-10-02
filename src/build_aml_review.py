@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 from copy import copy
 from pathlib import Path
 
@@ -427,22 +428,40 @@ def export_csv_replica(returned_df: pd.DataFrame, output_path: Path) -> None:
 # =========================================================
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Build and validate the AML review workbook")
+    parser.add_argument(
+        "--returned", type=Path, default=None,
+        help="A reviewer-completed copy to validate. Omit to regenerate a demonstration return.",
+    )
+    args = parser.parse_args()
     q1_df = load_q1_result(Q1_RESULT_XLSX)
     player_df = build_top_50_players(q1_df)
     aml_df = build_aml_table(player_df)
     write_aml_workbook(aml_df, Q3_OUTPUT_XLSX)
 
-    created_demo_return = False
-    if not Q3_RETURNED_XLSX.exists():
-        create_demo_aml_return(Q3_OUTPUT_XLSX, Q3_RETURNED_XLSX, aml_df)
-        created_demo_return = True
+    # A real reviewer hands back a filled-in copy. Point --returned at it.
+    # Without one, a demonstration return is regenerated from the current
+    # source every run, so a stale file from an earlier dataset never gets
+    # validated against new data.
+    returned_path = args.returned or Q3_RETURNED_XLSX
+    created_demo_return = args.returned is None
+    if created_demo_return:
+        create_demo_aml_return(Q3_OUTPUT_XLSX, returned_path, aml_df)
 
-    returned_df = read_returned_workbook(Q3_RETURNED_XLSX)
-    validate_returned_workbook(returned_df, aml_df)
+    returned_df = read_returned_workbook(returned_path)
+    try:
+        validate_returned_workbook(returned_df, aml_df)
+    except ValueError as exc:
+        raise SystemExit(
+            f"{exc}\n"
+            f"The returned workbook at {returned_path} does not match the current "
+            "source data. If it was filled in against an earlier run, re-export it "
+            "from the freshly written review workbook."
+        ) from exc
     export_csv_replica(returned_df, Q3_OUTPUT_CSV)
 
     print(f"Saved AML review workbook: {Q3_OUTPUT_XLSX}")
-    print(f"Validated returned workbook: {Q3_RETURNED_XLSX}")
+    print(f"Validated returned workbook: {returned_path}")
     print(f"Saved CSV replica: {Q3_OUTPUT_CSV}")
     if created_demo_return:
         print("The returned workbook contains synthetic demonstration inputs only.")
