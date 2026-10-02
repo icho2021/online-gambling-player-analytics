@@ -1,12 +1,16 @@
 # Player Analytics on Online Gambling Activity
 
-Six workbooks of raw player activity, five thousand players followed from 2015
-to 2021. Model them into one table, aggregate, segment the players by value and
-by risk, build a review workflow for the ones that need a human, and put a
+**467,020 rows** of real player activity across six workbooks: 327,395 payment
+attempts and 134,594 player-days of play, from 5,028 players followed for six
+years, 2015 to 2021.
+
+Model it into one table, aggregate it, segment the players by value and by
+risk, build a review workflow for the ones that need a human, and put a
 dashboard on top.
 
-**467,020 rows** across the six workbooks: 5,028 players, 327,395 payment
-attempts, 134,594 player-days of play, 2015 to 2021.
+The six years matter more than the row count. This is a panel, not a snapshot:
+the same people tracked forward, which is the only reason the cohort effects
+below are visible at all.
 
 The activity behind this is real operator data from the online gambling sector,
 not generated for a tutorial. The operator is not identified here, the source
