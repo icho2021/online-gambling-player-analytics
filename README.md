@@ -1,13 +1,13 @@
 # Player Analytics on Online Gambling Activity
 
-A 48-hour analytics exercise, rebuilt here as a runnable case study: take six
-workbooks of raw player activity, model them, answer three analytical questions
-in SQL and Python, segment the players, and design the dashboard that sits on
-top.
+Six workbooks of raw player activity, five thousand players followed from 2015
+to 2021. Model them into one table, aggregate, segment the players by value and
+by risk, build a review workflow for the ones that need a human, and put a
+dashboard on top.
 
-The original source data is not redistributed. `src/make_sample_data.py`
-generates synthetic workbooks with the same sheet names, columns and types, so
-every script below runs end to end on a clean clone.
+The source data is not redistributed. `src/make_sample_data.py` generates
+synthetic workbooks with the same sheet names, columns and types, so every
+script below runs end to end on a clean clone.
 
 ## The data
 
@@ -105,6 +105,31 @@ python src/segment_players.py     # value and risk segments -> output/
 Sample outputs from a synthetic run are committed under `output/` for the small
 files. The large intermediate tables and the DuckDB file are rebuilt rather than
 tracked.
+
+## Scope and limits
+
+The first version was built against a two-day brief, and that shows in where the
+depth is. The modelling, the segmentation and the review workflow are finished.
+The analysis was later written up properly in
+[`docs/findings.md`](docs/findings.md), which is where most of the reasoning
+lives now.
+
+What is deliberately not here:
+
+- **The game-mix shift is described, not explained.** Cash games are 92% of
+  wagers in 2015 and tournaments are 100% by 2021. Separating survivorship from
+  genuine behaviour change needs a per-player time series, which is a next step
+  rather than a finding.
+- **Withdrawal failures are not broken down by cause.** The success rate halves
+  over the period, but the source tables carry no failure reason, so the finding
+  stops at "ask the payments team".
+- **The risk rules are reasonable, not evaluated.** There are no known outcomes
+  to validate them against, so they are rules with a rationale rather than a
+  model with a measured precision and recall. That distinction is kept visible
+  on purpose.
+- **The two segmentation methods are not reconciled player by player.** They
+  disagree on some players, and the disagreement is informative, but comparing
+  them properly has not been done.
 
 ## Notes on judgment
 

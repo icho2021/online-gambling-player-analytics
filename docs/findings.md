@@ -5,6 +5,9 @@ withdrawals. These are the results from the original dataset, read off the
 dashboard built on it. The repository ships synthetic data instead, so a clone
 reproduces the pipeline but not these specific numbers.
 
+Where a finding stops short, it says so. The limits are listed in the README
+under Scope and limits.
+
 Headline figures: 5,028 players, 32.77M in wagers, 31.68M in winnings, 1.09M in
 estimated gross gaming revenue, a 3.3% hold rate, and 217 dollars of revenue per
 active player.
